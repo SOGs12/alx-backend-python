@@ -1,18 +1,7 @@
 #!/usr/bin/env python3
-"""a script for a type-annotated function
-to_str that takes a float n as
-argument and returns the string representation of the float."""
+"""Type-annotated function floor"""
 
-import math
 
-def to_str (n:float)-> str:
-	"""_summary_
-
-	Args:
-		n (float): float
-
-	Returns:
-		str: string
-	"""
-
-	return str(n)
+def to_str(n: float) -> str:
+    """Takes a float and returns its str repr"""
+    return str(n)
