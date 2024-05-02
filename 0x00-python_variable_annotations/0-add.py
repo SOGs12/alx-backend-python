@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
-"""a script for type-annotated function add that
-takes a float a and a float b as arguments
-and returns their sum as a float."""
 
+def add(a: float, b: float) -> float:
+    """
+    Add two float numbers and return the sum.
 
-def add(a:float, b:float)-> float:
-	"""_summary_
+    Args:
+        a: First float number.
+        b: Second float number.
 
-	Args:
-		a (float): _description_
-		b (float): _description_
+    Returns:
+        The sum of the two input numbers.
+    """
+    # Calculate the sum of a and b
+    return a + b
 
-	Returns:
-		float: _description_
-	"""
-	return a + b
+# For testing the function
+if __name__ == "__main__":
+    # Test the add function
+    result = add(1.11, 2.22)
+    print(result == 1.11 + 2.22)
+    print(add.__annotations__)
