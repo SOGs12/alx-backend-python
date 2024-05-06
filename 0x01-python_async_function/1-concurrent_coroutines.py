@@ -1,23 +1,21 @@
 #!/usr/bin/env python3
 """
-     an asynchronous coroutine
-     that takes in an integer argument
-     (max_delay, with a default value of 10)
-    """
-
-from typing import List
+This contains the wait_n function
+"""
 import asyncio
+import typing
+
 wait_random = __import__('0-basic_async_syntax').wait_random
 
 
-async def wait_n(n: int, max_delay: int) -> List[float]:
-    """return the list of all the delays (float values).
-in ascending order without using sort() because of concurrency.
+async def wait_n(n: int, max_delay: int = 10) -> typing.List[float]:
     """
-    sorted_tasks = []
-    tasks = [wait_random(max_delay) for _ in range(n)]
-    completed = asyncio.as_completed(tasks)
-    for task in completed:
-        result = await task
-        sorted_tasks.append(result)
-    return sorted_tasks # list of delay of tasks sorte as completed
+    wait_n should return the list of all the delays (float values)
+    The list of the delays should be in ascending order
+    without using sort() because of concurrency.
+    :param n:
+    :param max_delay:
+    :return:
+    """
+    tasks = [asyncio.create_task(wait_random(max_delay)) for _ in range(n)]
+    return [await task for task in asyncio.as_completed(tasks)]
